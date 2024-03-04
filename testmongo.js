@@ -30,13 +30,13 @@ app.get('/say/:name', function(req, res) {
 // Route to access database:
 app.get('/api/mongo/:item', function(req, res) {
 const client = new MongoClient(uri);
-//const searchKey = "{ partID: '" + req.params.item + "' }";
-//console.log("Looking for: " + searchKey);
+const searchKey = "{ partID: '" + req.params.item + "' }";
+console.log("Looking for: " + searchKey);
 
 async function run() {
   try {
     const database = client.db('MyDBexample');
-    const parts = database.collection('Cluster0');
+    const parts = database.collection('MyStuff');
 
     // Hardwired Query for a part that has partID '12345'
     // const query = { partID: '12345' };
